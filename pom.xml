@@ -25,6 +25,7 @@
 		<springboot.version>2.2.4.RELEASE</springboot.version>
 		<springcloud.version>Hoxton.SR1</springcloud.version>
 		<awscli.version>1.11.714</awscli.version>
+	
 	</properties>
 
 	<dependencyManagement>
@@ -40,6 +41,12 @@
 	</dependencyManagement>
 
 	<dependencies>
+	
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+		
 		<!-- SPRING BOOT -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -149,7 +156,10 @@
 					</execution>
 				</executions>
 			</plugin>
-
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
 			<!-- DOCKERIZER -->
 			<plugin>
 				<groupId>com.spotify</groupId>
