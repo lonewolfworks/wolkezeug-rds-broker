@@ -61,30 +61,30 @@ open class DataSourceConfig {
     @Bean
     @Qualifier("masterCredential")
     @Profile("!local")
-    open fun masterCredentialNonLocal(credentialProperties: CredentialProperties, decryptor: KmsTextEncryptor): Credential {
+    open fun masterCredentialNonLocal(credentialProperties: CredentialProperties): Credential {
         return Credential(
                 username = credentialProperties.masterUsername,
-                password = decryptor.decrypt(credentialProperties.masterEncryptedPassword)
+                password = credentialProperties.masterEncryptedPassword
         )
     }
 
     @Bean
     @Qualifier("appCredential")
     @Profile("!local")
-    open fun appCredentialNonLocal(credentialProperties: CredentialProperties, decryptor: KmsTextEncryptor): Credential {
+    open fun appCredentialNonLocal(credentialProperties: CredentialProperties): Credential {
         return Credential(
                 username = credentialProperties.appUsername,
-                password = decryptor.decrypt(credentialProperties.appEncryptedPassword)
+                password = credentialProperties.appEncryptedPassword
         )
     }
 
     @Bean
     @Qualifier("adminCredential")
     @Profile("!local")
-    open fun adminCredentialNonLocal(credentialProperties: CredentialProperties, decryptor: KmsTextEncryptor): Credential {
+    open fun adminCredentialNonLocal(credentialProperties: CredentialProperties): Credential {
         return Credential(
                 username = credentialProperties.adminUsername,
-                password = decryptor.decrypt(credentialProperties.adminEncryptedPassword)
+                password = credentialProperties.adminEncryptedPassword
         )
     }
 
